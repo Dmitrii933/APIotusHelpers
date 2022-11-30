@@ -1,14 +1,12 @@
 package ApiHelpersVersion.tests;
 
-import ApiHelpersVersion.pojo.Data;
-import ApiHelpersVersion.pojo.Support;
-import ApiHelpersVersion.pojo.User;
+import ApiHelpersVersion.pojoGet.Data;
+import ApiHelpersVersion.pojoGet.Support;
+import ApiHelpersVersion.pojoGet.User;
 import com.consol.citrus.annotations.CitrusTest;
 import com.consol.citrus.context.TestContext;
 import com.consol.citrus.message.builder.ObjectMappingPayloadBuilder;
 import com.consol.citrus.testng.TestNGCitrusSupport;
-import com.consol.citrus.testng.spring.TestNGCitrusSpringSupport;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.testng.annotations.Test;
 

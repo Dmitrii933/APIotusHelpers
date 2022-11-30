@@ -1,5 +1,5 @@
 
-package ApiHelpersVersion.pojo;
+package ApiHelpersVersion.pojoGet;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
