@@ -1,5 +1,6 @@
 package ApiHelpersVersion.tests;
 
+import ApiHelpersVersion.behavior.CreateUserBehavior;
 import ApiHelpersVersion.pojoPost.UserRq;
 import ApiHelpersVersion.pojoPost.UserRs;
 import com.consol.citrus.annotations.CitrusTest;
@@ -17,18 +18,16 @@ import static com.consol.citrus.validation.json.JsonPathMessageValidationContext
 
 public class FirstTestCreateUser extends TestNGCitrusSupport {
 
-
-
-
         private TestContext context;
+    private String name = "Dmitriy";
+    private String job = "QA";
 
-        @Test(description = "Создание пользователя", enabled = true)
+        @Test(description = "Создание пользователя", enabled = true, invocationCount = 3)
         @CitrusTest
         public void getTestActions() {
             this.context = citrus.getCitrusContext().createTestContext();
-String name = "Dmitriy";
-String job = "QA";
 
+run(applyBehavior(new CreateUserBehavior("Andrey", "QA", context)));
 
             $(http()
                     .client("restClientReqres")
@@ -68,7 +67,7 @@ String job = "QA";
     public UserRs getJsonDataRs() {
         UserRs user = UserRs.builder()
                 .createdAt("${createdAt}")
-                .id("${createdAt}")
+                .id("${currentId}")
                 .name("Dmitriy")
                 .job("QA")
                 .build();
