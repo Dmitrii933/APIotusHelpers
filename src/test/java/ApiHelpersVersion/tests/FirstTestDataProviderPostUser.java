@@ -1,10 +1,7 @@
 package ApiHelpersVersion.tests;
 
-import ApiHelpersVersion.pojoPost.UserRq;
-import ApiHelpersVersion.pojoPost.UserRs;
 import com.consol.citrus.annotations.CitrusTest;
 import com.consol.citrus.context.TestContext;
-import com.consol.citrus.message.builder.ObjectMappingPayloadBuilder;
 import com.consol.citrus.testng.TestNGCitrusSupport;
 import org.springframework.http.HttpStatus;
 import org.testng.annotations.DataProvider;

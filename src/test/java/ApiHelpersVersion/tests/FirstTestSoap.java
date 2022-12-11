@@ -1,11 +1,10 @@
 package ApiHelpersVersion.tests;
 
-import ApiHelpersVersion.features.CustomMarshaller;
+import features.CustomMarshaller;
 import ApiHelpersVersion.pojoSoap.xmlSoap.webservicesserver.NumberToDollars;
 import ApiHelpersVersion.pojoSoap.xmlSoap.webservicesserver.NumberToDollarsResponse;
 import com.consol.citrus.annotations.CitrusTest;
 import com.consol.citrus.context.TestContext;
-import com.consol.citrus.message.builder.ObjectMappingPayloadBuilder;
 import com.consol.citrus.testng.TestNGCitrusSupport;
 import org.testng.annotations.Test;
 

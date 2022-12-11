@@ -1,17 +1,18 @@
 
-package ApiHelpersVersion.pojoGet;
+package pojoPost;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 
 @lombok.Data
 @Builder
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class User {
+public class UserRq {
 
+    private String job;
 
-    private Data data;
+    private String name;
 
-    private Support support;
 
 }

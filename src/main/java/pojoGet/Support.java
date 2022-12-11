@@ -1,9 +1,7 @@
 
-package ApiHelpersVersion.pojoGet;
-
+package pojoGet;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
@@ -11,18 +9,13 @@ import lombok.Builder;
 @Builder
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Data {
+public class Support {
 
 
-    private String avatar;
+    private String text;
 
-    private String email;
+    private String url;
 
-    private String first_name;
-
-    private Long id;
-
-    private String last_name;
 
 
 }

@@ -1,8 +1,8 @@
 package ApiHelpersVersion.tests;
 
-import ApiHelpersVersion.pojoGet.Data;
-import ApiHelpersVersion.pojoGet.Support;
-import ApiHelpersVersion.pojoGet.User;
+import pojoGet.Data;
+import pojoGet.Support;
+import pojoGet.User;
 import com.consol.citrus.annotations.CitrusTest;
 import com.consol.citrus.context.TestContext;
 import com.consol.citrus.message.builder.ObjectMappingPayloadBuilder;

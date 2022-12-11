@@ -5,12 +5,9 @@
   <groupId>ApiHelpersVersion</groupId>
   <artifactId>ApiHelpersTesting</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>Citrus Integration Test</name>
 
   <properties>
-    <java.version>11</java.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <citrus.version>3.2.1</citrus.version>
+    <citrus.version>3.0.0</citrus.version>
     <slf4j.version>1.7.30</slf4j.version>
     <log4j2.version>2.15.0</log4j2.version>
   </properties>
@@ -46,7 +43,6 @@
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>1.18.24</version>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
@@ -79,8 +75,19 @@
       <groupId>jakarta.xml.ws</groupId>
       <artifactId>jakarta.xml.ws-api</artifactId>
       <version>2.3.2</version>
-      <scope>test</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/com.github.tomakehurst/wiremock -->
+    <dependency>
+      <groupId>com.github.tomakehurst</groupId>
+      <artifactId>wiremock</artifactId>
+      <version>2.27.2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.tomakehurst</groupId>
+      <artifactId>wiremock-jre8</artifactId>
+      <version>2.35.0</version>
+    </dependency>
+
     <dependency>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-compiler-plugin</artifactId>

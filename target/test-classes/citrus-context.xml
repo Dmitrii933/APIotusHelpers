@@ -19,6 +19,7 @@
        http://www.citrusframework.org/schema/testcase http://www.citrusframework.org/schema/testcase/citrus-testcase.xsd
        http://www.citrusframework.org/schema/websocket/config http://www.citrusframework.org/schema/websocket/config/citrus-websocket-config.xsd">
 
+
 <!-- Common settings -->
     <context:property-placeholder location="classpath:citrus.properties"/>
 
@@ -61,16 +62,20 @@
     </citrus:schema-repository>
 
     <citrus-http:client
+            id="restClientWire"
+            request-url="${urlWire}"
+            content-type="application/json"
+            timeout="15000"/>
+
+    <citrus-http:client
             id="restClient"
             request-url="${urlMock}"
             content-type="application/json"
             timeout="15000"/>
 
-    <citrus-http:server
+    <!--<citrus-http:server
             id="restServer"
             port="5555"
             auto-start="true"
-            timeout="15000"/>
-
-
+            timeout="15000"/>-->
 </beans>

@@ -1,6 +1,6 @@
 package ApiHelpersVersion.behavior;
 
-import ApiHelpersVersion.pojoPost.UserRs;
+import pojoPost.UserRs;
 import com.consol.citrus.TestActionRunner;
 import com.consol.citrus.TestBehavior;
 import com.consol.citrus.context.TestContext;
@@ -10,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import static com.consol.citrus.http.actions.HttpActionBuilder.http;
 import static com.consol.citrus.validation.DelegatingPayloadVariableExtractor.Builder.fromBody;
 import static com.consol.citrus.validation.json.JsonMessageValidationContext.Builder.json;
-import static com.consol.citrus.validation.json.JsonPathMessageValidationContext.Builder.jsonPath;
 
 public class CreateUserBehavior implements TestBehavior {
 

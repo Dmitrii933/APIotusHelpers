@@ -1,62 +1,55 @@
 package ApiHelpersVersion.mock;
 
-import pojoGet.Data;
-import pojoGet.Support;
-import pojoGet.User;
 import com.consol.citrus.annotations.CitrusTest;
 import com.consol.citrus.context.TestContext;
 import com.consol.citrus.message.builder.ObjectMappingPayloadBuilder;
 import com.consol.citrus.testng.TestNGCitrusSupport;
+import com.github.tomakehurst.wiremock.WireMockServer;
+import com.github.tomakehurst.wiremock.client.WireMock;
+import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import org.springframework.http.HttpStatus;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pojoGet.Data;
+import pojoGet.Support;
+import pojoGet.User;
+import pojoPost.UserRq;
+import pojoPost.UserRs;
+import stub.GetUserStubWireMock;
 
-import static com.consol.citrus.actions.EchoAction.Builder.echo;
 import static com.consol.citrus.http.actions.HttpActionBuilder.http;
+import static com.consol.citrus.validation.json.JsonMessageValidationContext.Builder.json;
+import static com.github.tomakehurst.wiremock.client.WireMock.configureFor;
 
-public class TestMock extends TestNGCitrusSupport {
+public class CreateUserWireMock_Test extends TestNGCitrusSupport {
 
+    {
+        new GetUserStubWireMock();
+    }
+   /* private static WireMockServer wireMockServer = new WireMockServer(WireMockConfiguration.options()
+           .port(5050));*/
     private TestContext context;
 
-    @Test(description = "Получение информации о пользователе", enabled = true)
+    @BeforeClass
+    public static void startWireMock() {
+       // wireMockServer.start();
+      //  WireMock.configureFor("localhost", 5050);
+        configureFor(8080);
+    }
+
+    @Test(description = "Получение пользователя", enabled = true)
     @CitrusTest
     public void getTestActions() {
         this.context = citrus.getCitrusContext().createTestContext();
-
-
         $(http()
-                .client("restClient")
+                .client("restClientWire")
                 .send()
                 .get("users/" + context.getVariable("userId"))
-                .fork(true)
         );
 
-        run(http()
-                .server("restServer")
-                .receive()
-                .get());
-
-        run(http()
-                .server("restServer")
-                .send()
-                .response()
-                .message()
-                .contentType("application/json")
-                .body("{\n" +
-                        "    \"data\": {\n" +
-                        "        \"id\": ${userId},\n" +
-                        "        \"email\": \"janet.weaver@reqres.in\",\n" +
-                        "        \"first_name\": \"Janet\",\n" +
-                        "        \"last_name\": \"Weaver\",\n" +
-                        "        \"avatar\": \"https://reqres.in/img/faces/2-image.jpg\"\n" +
-                        "    },\n" +
-                        "    \"support\": {\n" +
-                        "        \"url\": \"https://reqres.in/#support-heading\",\n" +
-                        "        \"text\": \"To keep ReqRes free, contributions towards server costs are appreciated!\"\n" +
-                        "    }\n" +
-                        "}"));
-
         $(http()
-                        .client("restClient")
+                        .client("restClientWire")
                         .receive()
                         .response(HttpStatus.OK)
                         .message()
@@ -65,6 +58,19 @@ public class TestMock extends TestNGCitrusSupport {
 
         );
     }
+
+    @AfterClass
+    public static void tearDownMockServer() {
+    //wireMockServer.stop();
+   }
+
+        public UserRq getJsonDataRq() {
+            UserRq user = UserRq.builder()
+                    .job("QA")
+                    .name("Dmitriy")
+                    .build();
+            return user;
+        }
 
     public User getJsonData() {
         Data data = Data.builder()
@@ -86,4 +92,5 @@ public class TestMock extends TestNGCitrusSupport {
                 .build();
         return user;
     }
+
 }

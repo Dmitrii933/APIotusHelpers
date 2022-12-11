@@ -1,6 +1,9 @@
 
-package ApiHelpersVersion.pojoPost;
+package pojoGet;
+
+
 import com.fasterxml.jackson.annotation.JsonInclude;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
@@ -8,11 +11,18 @@ import lombok.Builder;
 @Builder
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class UserRq {
+public class Data {
 
-    private String job;
 
-    private String name;
+    private String avatar;
+
+    private String email;
+
+    private String first_name;
+
+    private Long id;
+
+    private String last_name;
 
 
 }

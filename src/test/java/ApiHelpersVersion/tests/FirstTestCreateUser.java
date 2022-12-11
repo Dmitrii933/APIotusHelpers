@@ -1,8 +1,8 @@
 package ApiHelpersVersion.tests;
 
 import ApiHelpersVersion.behavior.CreateUserBehavior;
-import ApiHelpersVersion.pojoPost.UserRq;
-import ApiHelpersVersion.pojoPost.UserRs;
+import pojoPost.UserRq;
+import pojoPost.UserRs;
 import com.consol.citrus.annotations.CitrusTest;
 import com.consol.citrus.context.TestContext;
 import com.consol.citrus.message.builder.ObjectMappingPayloadBuilder;
