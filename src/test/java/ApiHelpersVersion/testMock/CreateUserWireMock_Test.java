@@ -1,12 +1,9 @@
-package ApiHelpersVersion.mock;
+package ApiHelpersVersion.testMock;
 
 import com.consol.citrus.annotations.CitrusTest;
 import com.consol.citrus.context.TestContext;
 import com.consol.citrus.message.builder.ObjectMappingPayloadBuilder;
 import com.consol.citrus.testng.TestNGCitrusSupport;
-import com.github.tomakehurst.wiremock.WireMockServer;
-import com.github.tomakehurst.wiremock.client.WireMock;
-import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import org.springframework.http.HttpStatus;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -15,11 +12,9 @@ import pojoGet.Data;
 import pojoGet.Support;
 import pojoGet.User;
 import pojoPost.UserRq;
-import pojoPost.UserRs;
 import stub.GetUserStubWireMock;
 
 import static com.consol.citrus.http.actions.HttpActionBuilder.http;
-import static com.consol.citrus.validation.json.JsonMessageValidationContext.Builder.json;
 import static com.github.tomakehurst.wiremock.client.WireMock.configureFor;
 
 public class CreateUserWireMock_Test extends TestNGCitrusSupport {

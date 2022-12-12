@@ -1,4 +1,4 @@
-package ApiHelpersVersion.mock;
+package ApiHelpersVersion.testMock;
 
 import pojoGet.Data;
 import pojoGet.Support;
