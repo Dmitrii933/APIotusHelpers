@@ -17,7 +17,7 @@ import stub.GetUserStubWireMock;
 import static com.consol.citrus.http.actions.HttpActionBuilder.http;
 import static com.github.tomakehurst.wiremock.client.WireMock.configureFor;
 
-public class CreateUserWireMock_Test extends TestNGCitrusSupport {
+public class GetUserWireMock_Test extends TestNGCitrusSupport {
 
     {
         new GetUserStubWireMock();
